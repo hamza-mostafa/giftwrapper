@@ -25,7 +25,7 @@ An application to create gift wraps with a specific pattern and box dimensions p
 
  - download the repo, then enter the folder and `npm i`
  - copy the .env.example and add the AWS credentials.
- - check the configuration for the box dimensions and the extra width and height `config/box.js`
+ - check the configuration for the box dimensions and the extra width and length `config/box.js`
  - check the configuration for the image required DPI `config/image.js`   
  - confirm that the AWS bucket is publicly available otherwise the link will not be available.
  - use this endpoint to upload the pattern.
@@ -63,3 +63,4 @@ An application to create gift wraps with a specific pattern and box dimensions p
  - The FileManager cleans the data directly after the upload, this is done in S3 service file, if file saving is required, please make sure to update the FileManager. Or if it is required just for temp time, please make sure to uncomment the File Manager.
  - Box calculations are held in the service folder/box.
  - Console.log have been added in all steps to measure the speed in a simple way.
+ - As the wrapper cannot be exact, and the extra is not known, 2 fields for the extra width and length that can be added to the wrapper, if exact is required, just replace it with 0.
