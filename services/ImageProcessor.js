@@ -28,7 +28,7 @@ exports.GeneratePdf = async (pattern) => {
 
         let pdfContext = pdfCanvas.getContext('2d');
 
-        pdfContext.drawImage(imageCanvas, 0,0, imageCanvas.width, imageCanvas.height, 0,0, pdfCanvas.width, pdfCanvas.width)
+        pdfContext.drawImage(imageCanvas, 0,0, imageCanvas.width, imageCanvas.height, 0,0, pdfCanvas.width, pdfCanvas.height)
         // console.log('saving file', new Date)
         // recordToFiles(imageCanvas, pdfCanvas) // if a copy is required
         console.log('preparing buffering', new Date)
