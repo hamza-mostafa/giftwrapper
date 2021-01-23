@@ -47,16 +47,21 @@ An application to create gift wraps with a specific pattern and box dimensions p
  - `providedAssets` includes the image and pdf from the quest.
  - `routes` as the name implies shows the routes to the above endpoints.
  - `services` includes 3 services,
-    - `ImageProcessor` which is the application purpose and includes 2 Canvas one to formulate
-      the pdf dimensions, and the other to create the DPI including the image repetition pattern, 
-      finally a stream is sent directly to AWS S3.
+    - `ImageProcessor` [How it works](https://github.com/hamza-mostafa/giftwrapper#how-image-processor-works)
     - `S3` acts as adapter to fetch data and upload from S3.
-    - `Box` holds the box calculations and extraction of required dimensions.
+    - `Box` holds the box calculations and extraction of required dimensions converting 3D surface to 2D surface.
     - `FileManager` used to clean the data from the tmp folder.
    - `tmp` where the generated files is saved, if the function is invoked.
 
 ---
+#### How Image processor works
+ - after converting the 3d surface to 2d surface with the box service.
+ - The image processor creates 2 canvas one to define the PDF width and length, to create the match for the box.
+ - The second is for the DPI to match what is required, and to repeat pattern.
+ - Once, both are created, the image canvas is fitted into the pdf canvas, so that the DPI can match the required,
+ - Finally, the merged canvas is buffered and streamed to AWS.
 
+---
 #### Notes:
  - There is an option to record the files on the machine.  However, this has been commented out to save time.
    And can be used whenever required.
