@@ -24,10 +24,13 @@ An application to create gift wraps with a specific pattern and box dimensions p
 ### Using the app:
 
  - download the repo, then enter the folder and `npm i`
- - copy the .env.example and add the AWS credentials.
+ - copy the .env.example keys to .env and add the AWS credentials.
+ - [How to create AWS cred.](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-your-credentials.html)
+ - Run the app by ``` npm run start ```, it should be running on `port 3000`, as per node defaults.
  - check the configuration for the box dimensions and the extra width and length `config/box.js`
  - check the configuration for the image required DPI `config/image.js`   
  - confirm that the AWS bucket is publicly available otherwise the link will not be available.
+ - [How to edit public access for S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/block-public-access-bucket.html)
  - use this endpoint to upload the pattern.
 
    ```curl --location --request POST 'http://localhost:3000/pdfs/pattern'   --form 'pattern=@"~/img.png"'```
