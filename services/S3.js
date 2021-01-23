@@ -1,5 +1,4 @@
-require('dotenv').config();
-const AWS = require('aws-sdk')
+const AWS = require('aws-sdk');
 const fs = require("fs");
 const FileManager = require("./FileManager");
 
