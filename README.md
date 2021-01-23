@@ -29,10 +29,8 @@ An application to create gift wraps with a specific pattern and box dimensions p
 
 ### Using the app:
 
-
  - download the repo, then enter the folder and `npm i`
- - copy the .env.example, and create a new file under the name `.env` and add the AWS credentials.
- -   ```shell cp .env.example .env```
+ - copy the .env.example and add the AWS credentials.
  - check the configuration for the box dimensions and the extra width and height -> `config/box.js`
  - check the configuration for the image required DPI -> `config/image.js`   
  - confirm that the AWS bucket is publicly available otherwise the link will not be available.
@@ -77,10 +75,10 @@ An application to create gift wraps with a specific pattern and box dimensions p
    
     this is done in S3 service file,
     
-    if file saving is required, please make sure to update the FileManager, 
-   
-    or to comment the file cleaning in the S3 service.
+    if file saving is required, please make sure to update the FileManager.
+
+    Or if it is required just for temp time, please make sure to uncomment the File Manager.
 
  - Box calculations are held in the service folder/box.
- - There are console.logs in all the steps to show the time between each.
     
+ - Console.log have been added in all steps to measure the speed in a simple way.

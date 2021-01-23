@@ -18,13 +18,13 @@ exports.uploadFile = (PDFStream, Key, res) => {
             Key,
             Body: PDFStream
         };
-    console.log('finshed buffering', new Date)
+    console.log('finished buffering', new Date)
     console.log('starting upload', new Date)
 
     s3.upload(params, function(err, data) {
         console.error(err)
-        console.log('finshed upload', new Date)
-        FileManager.clean() // once file is uploaded, the tmp files are not needed.
+        console.log('finished upload', new Date)
+        // FileManager.clean() // once file is uploaded, the tmp files are not needed.
         res.status(200).json(data);
     });
 };
