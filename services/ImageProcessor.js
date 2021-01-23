@@ -1,27 +1,33 @@
 const fs = require("fs");
 const { pdf: pdfConfig } = require("../config/pdf");
-const { Image, createCanvas,Canvas } = require("canvas");
+const { Image, createCanvas, Canvas } = require("canvas");
 const { box } = require('../services/box')
 const { image: imageConfig } = require('../config/image')
 const { cm2inch } = require("../helpers/UnitConverter");
 
 exports.GeneratePdf = async (pattern) => {
         console.log('generating file ...', new Date)
+
         let image = new Image();
         image.src = process.cwd()+'/'+ pattern
+
         let pdfCanvas = new createCanvas(
             cm2inch(box.paperWidth) * 72,
             cm2inch(box.paperLength) * 72,
             'pdf'
         );
+
         let imageCanvas = new Canvas(
             box.paperWidth * imageConfig.requiredDPI,
             box.paperLength * imageConfig.requiredDPI,
         )
-        let pdfContext = pdfCanvas.getContext('2d');
+
         let imageContext = imageCanvas.getContext('2d');
         imageContext.fillStyle = imageContext.createPattern(image, 'repeat');
         imageContext.fillRect(0, 0, imageCanvas.width, imageCanvas.height);
+
+        let pdfContext = pdfCanvas.getContext('2d');
+
         pdfContext.drawImage(imageCanvas, 0,0, imageCanvas.width, imageCanvas.height, 0,0, pdfCanvas.width, pdfCanvas.width)
         // console.log('saving file', new Date)
         // recordToFiles(imageCanvas, pdfCanvas) // if a copy is required

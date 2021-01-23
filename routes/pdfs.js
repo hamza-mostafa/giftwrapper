@@ -1,8 +1,8 @@
 const express = require('express');
-const {fetchPdfs, handlePattern} = require("../controllers/Pdf");
+const { fetchPdfs, handlePattern } = require("../controllers/Pdf");
 const router = express.Router();
 
-/* GET users listing. */
+/* Post the pattern file listing. */
 router.post('/pattern', handlePattern);
 
 /* GET uploaded pdfs listing. */

@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-const fs = require("fs");
 const FileManager = require("./FileManager");
 
 AWS.config.apiVersions = {
@@ -17,6 +16,7 @@ exports.uploadFile = (PDFStream, Key, res) => {
             Key,
             Body: PDFStream
         };
+
     console.log('finished buffering', new Date)
     console.log('starting upload', new Date)
 
